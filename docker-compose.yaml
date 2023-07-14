@@ -20,6 +20,8 @@ services:
       dockerfile: dockerfiles/php.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
+    depends_on:
+      - phpmyadmin
   mysql:
     image: mysql:5.7
     env_file:
@@ -37,6 +39,12 @@ services:
     volumes:
       - ./src:/var/www/html
     entrypoint: ["php", "/var/www/html/artisan"]
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "3000:80"
+    env_file:
+      - ./env/phpmyadmin.env
   npm:
     image: node:14
     working_dir: /var/www/html

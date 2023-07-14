@@ -18,3 +18,6 @@ HOW TO USE
 4. Edit the .env file for laravel in /src/.env directory
 5. Run the artisan to migrate the database -> hp artisan -> docker-compose up --rm artisan migrate
 6. Run the container in order to lunch the application -> docker-compose up -d --build server
+
+to access phpyadmin:
+localhost:3000
